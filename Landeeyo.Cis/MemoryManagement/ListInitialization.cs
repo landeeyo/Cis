@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Landeeyo.Cis.Interceptors.Attributes;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Landeeyo.Cis.MemoryManagement
 {
@@ -16,14 +14,16 @@ namespace Landeeyo.Cis.MemoryManagement
     /// </summary>
     public class ListInitialization
     {
-        public void ImproperListInitialization()
+        [ExecutionTime]
+        public virtual void ImproperListInitialization()
         {
             var list = new List<int>();
             Console.WriteLine("Initial capacity: {0}", list.Capacity);
             TestListInitialization(list);
         }
 
-        public void ProperListInitialization()
+        [ExecutionTime]
+        public virtual void ProperListInitialization()
         {
             var list = new List<int>(1024);
             Console.WriteLine("Initial capacity: {0}", list.Capacity);

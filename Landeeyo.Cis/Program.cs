@@ -1,9 +1,6 @@
 ﻿using Landeeyo.Cis.MemoryManagement;
+using Ninject;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Landeeyo.Cis
 {
@@ -15,16 +12,19 @@ namespace Landeeyo.Cis
 
             #region List initialization
 
-            var listInitialization = new ListInitialization();
-            listInitialization.ImproperListInitialization();
-            listInitialization.ProperListInitialization();
-            Console.ReadKey();
+            using (var kernel = new StandardKernel())
+            {
+                kernel.Bind<ListInitialization>().ToSelf();
+
+                var listInitialization = kernel.Get<ListInitialization>();
+                listInitialization.ImproperListInitialization();
+                listInitialization.ProperListInitialization();
+                Console.ReadKey();
+            }
 
             #endregion
 
             #endregion
-
-
         }
     }
 }
