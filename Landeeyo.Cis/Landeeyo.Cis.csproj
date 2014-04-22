@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumerators\Ilist.cs" />
+    <Compile Include="Enumerators\Person.cs" />
+    <Compile Include="Enumerators\ReverseEnumerator.cs" />
     <Compile Include="Interceptors\Attributes\ExecutionTimeAttribute.cs" />
     <Compile Include="Interceptors\ExecutionTimeInterceptor.cs" />
     <Compile Include="MemoryManagement\ListInitialization.cs" />
@@ -63,7 +66,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Enumerators\PersonCustomContainer.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
